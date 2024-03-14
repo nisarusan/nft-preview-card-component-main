@@ -1,33 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | NFT preview card component</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <title>Frontend Mentor | NFT preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Lexend+Deca:wght@100..900&family=Outfit:wght@100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            font-size: 10px;
+            --soft-blue: hsl(215, 51%, 70%);
+            --cyan: hsl(178, 100%, 50%);
+            --very-dark-blue: hsl(217, 54%, 11%);
+            --very-dark-blue-card: hsl(216, 50%, 16%);
+            --very-dark-blue-line: hsl(215, 32%, 27%);
+            --white: hsl(0, 0%, 100%);
+        }
+
+        body {
+            font-size: 1.8rem;
+            background: var(--very-dark-blue);
+            height: 100vh;
+            display: grid;
+            place-content: center;
+            align-content: center;
+            color: var(--soft-blue);
+            font-family: "Outfit", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        main {
+            display: grid;
+            gap: 2rem;
+            max-width: 36rem;
+            background: var(--very-dark-blue-card);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin: 2rem;
+        }
+
+        main h2 {
+            color: var(--white);
+        }
+
+        main p {
+            font-weight: 200;
+        }
+
+        main .img-wrapper img {
+            max-width: 100%;
+            border-radius: 1rem;
+        }
+
+        .img-wrapper {
+            position: relative;
+        }
+        .img-wrapper:after {
+            border-radius: 1rem;
+           content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transition: background-color .3s ease-out;
+        }
+
+        .img-wrapper:hover:after {
+            cursor: pointer;
+            background: rgba(0, 255, 247, .6) url(./images/icon-view.svg) center / 6rem no-repeat;
+        }
+
+        main .nft {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .nft-price {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nft-price--detail {
+            color: var(--cyan);
+        }
+
+        .nft-price--detail, .nft-price--days {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        hr {
+          border: .1rem solid var(--soft-blue);
+        }
+        .creator {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+        }
+        .creator .creator-image {
+         max-width: 10%;
+        }
+        .creator .creator-image img {
+            border: .2rem solid var(--soft-blue);
+            border-radius: 100%;
+            max-width: 90%;
+        }
+
+
+    </style>
 </head>
 <body>
-
-  Equilibrium #3429
-
-  Our Equilibrium collection promotes balance and calm.
-
-  0.041 ETH
-  3 days left
-  
-  Creation of Jules Wyvern
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+<main>
+    <div class="img-wrapper">
+        <img src="./images/image-equilibrium.jpg" alt="NFT">
+    </div>
+    <div class="nft">
+        <h2> Equilibrium #3429</h2>
+        <p>Our Equilibrium collection promotes balance and calm.</p>
+        <div class="nft-price">
+            <p class="nft-price--detail"><img src="./images/icon-ethereum.svg" />0.041 ETH</p>
+            <p class="nft-price--days"><img src="./images/icon-clock.svg"> 3 days left</p>
+        </div>
+        <hr>
+    </div>
+    <div class="creator">
+        <div class="creator-image">
+            <img src="./images/image-avatar.png" alt="Profile">
+        </div>
+        <p>Creation of <strong class="creator-attribution">Jules Wyvern</strong></p>
+    </div>
+</main>
 </body>
 </html>
